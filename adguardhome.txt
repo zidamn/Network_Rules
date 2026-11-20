@@ -1,0 +1,66 @@
+! ============================================================
+! AdGuard Home - Personal DNS Filtering Rules
+! Repository: https://github.com/zidamn/Network_Rules
+! ============================================================
+!
+! Rules are organized by scope and purpose.
+! $client limits a rule to a specific DNS client.
+! $important gives a rule priority over ordinary rules.
+!
+
+! ------------------------------------------------------------
+! 1. Global exceptions
+! ------------------------------------------------------------
+
+! Allow t.co for all clients, including the Narwal robot.
+@@||t.co^$important
+
+
+! ------------------------------------------------------------
+! 2. Narwal robot - 192.168.0.48
+! ------------------------------------------------------------
+
+! Allow Narwal cloud services and NTP.
+@@||narwaltech.com^$client=192.168.0.48
+@@||pool.ntp.org^$client=192.168.0.48
+
+! Block all other DNS domains for this client.
+! Note: The global $important exception above still allows t.co.
+||*^$client=192.168.0.48
+
+
+! ------------------------------------------------------------
+! 3. Local network
+! ------------------------------------------------------------
+
+||ascletis.local^
+
+
+! ------------------------------------------------------------
+! 4. Analytics, telemetry, and tracking
+! ------------------------------------------------------------
+
+||a.fxltsbl.com^$important
+||apm-fe.xiaohongshu.com^$important
+||data.bilibili.com^$important
+||e.tapdb.ap-sg.tapapis.com^$important
+||events.telemetry.data.nvidia.com^$important
+||hif-dliq.deepseek.com^$important
+||mdp-usertrace-cn.heytapdownload.com^
+||mstat.tpns.tencent.com^$important
+||uc-track-gl.heytapmobi.com^
+||0kkkkkt.com^$important
+||ads-img-bak.xhscdn.com^$important
+||cgljdhvyzxm.xhscdn.com^$important
+||devc.zztfly.com^$important
+||push-ads-cn.heytapmobi.com^
+||wifi.12306.cn^$important
+
+
+! ------------------------------------------------------------
+! 6. Exact-host block
+! ------------------------------------------------------------
+
+! Kept in domain-only syntax to preserve exact-host matching:
+! subdomains of stun.services.mozilla.com are not blocked by this rule.
+stun.services.mozilla.com
