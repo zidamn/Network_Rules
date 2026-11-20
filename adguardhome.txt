@@ -55,7 +55,7 @@
 ||devc.zztfly.com^$important
 ||push-ads-cn.heytapmobi.com^
 ||wifi.12306.cn^$important
-
+||srflx.douyucdn.cn^
 
 ! ------------------------------------------------------------
 ! 6. Exact-host block
