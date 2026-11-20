@@ -1,0 +1,33 @@
+! 2023-03-18 https://bbs.nga.cn
+bbs.nga.cn###selectTextHintWindow
+
+! 2023-03-31 https://live.bilibili.com
+live.bilibili.com###gift-control-vm > div > div > .p-relative.b-box.f-clear.gift-control-panel
+
+! 2023-07-04 https://www.douyu.com
+||shark2.douyucdn.cn/front-publish/live-activity-gift-naming-master/assets/images/logo_mini_b14d45c.png$image
+douyu.com##+js(nowebrtc)
+
+! Assuming you mean globally blocking all 3rd-party frames: Probably best to use a dynamic rule, i. e. * * 3p-frame block.
+! To globally block "example.com" as a third party (i. e. including frames), dynamically again: * example.com * block.
+
+! 2024-07-13 https://www.douyu.com
+||shark2.douyucdn.cn/front-publish/live-super-fans-master/*$image
+
+! Nov 16, 2024 https://www.douyu.com
+www.douyu.com###js-room-activity
+
+! Oct 24, 2026 https://chatgpt.com
+chatgpt.com##.surface-NbxhOL
+
+! YouTube Search: Hide Shorts shelves
+www.youtube.com##ytd-search ytd-reel-shelf-renderer
+www.youtube.com##ytd-search grid-shelf-view-model:has(.shortsLockupViewModelHost)
+
+! Hide individual Shorts appearing as ordinary results
+www.youtube.com##ytd-search ytd-video-renderer:has(badge-shape[aria-label="Shorts"])
+www.youtube.com##ytd-search ytd-video-renderer:has(a[href^="/shorts/"])
+
+! Hide Shorts using newer result-card layouts
+www.youtube.com##ytd-search .ytLockupViewModelWrapper:has(a[href^="/shorts/"])
+
